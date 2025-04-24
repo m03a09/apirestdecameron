@@ -1,0 +1,145 @@
+{
+    "info": {
+        "_postman_id": "...",
+        "name": "Decameron API - Acomodaciones",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Crear Acomodación",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"nombre\": \"Nueva Acomodación\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/acomodaciones",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "acomodaciones"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Obtener Acomodación por ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/acomodaciones/1",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "acomodaciones",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Obtener Todas las Acomodaciones",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/acomodaciones",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "acomodaciones"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Actualizar Acomodación",
+            "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"nombre\": \"Acomodación Actualizada\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/acomodaciones/1",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "acomodaciones",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Eliminar Acomodación",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/acomodaciones/1",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "acomodaciones",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

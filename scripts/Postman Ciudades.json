@@ -1,0 +1,145 @@
+{
+    "info": {
+        "_postman_id": "...",
+        "name": "Decameron API - Ciudades",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Crear Ciudad",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"nombre\": \"Nueva Ciudad\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/ciudades",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "ciudades"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Obtener Ciudad por ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/ciudades/1",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "ciudades",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Obtener Todas las Ciudades",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/ciudades",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "ciudades"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Actualizar Ciudad",
+            "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"nombre\": \"Ciudad Actualizada\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/ciudades/1",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "ciudades",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Eliminar Ciudad",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/ciudades/1",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "ciudades",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

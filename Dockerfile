@@ -1,9 +1,18 @@
 FROM php:7.4-cli
 
-# Instalar dependencias necesarias
-RUN apt-get update && apt-get install -y \
-    git unzip curl libpq-dev \
-    php7.4-mbstring php7.4-xml php7.4-curl php7.4-pgsql
+# Actualizar repositorios
+RUN apt-get update
+
+# Instalar dependencias comunes
+RUN apt-get install -y --no-install-recommends \
+    git unzip curl libpq-dev
+
+# Instalar extensiones PHP 7.4 necesarias
+RUN apt-get install -y --no-install-recommends \
+    php7.4-mbstring \
+    php7.4-xml \
+    php7.4-curl \
+    php7.4-pgsql
 
 # Instalar Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -11,7 +20,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 WORKDIR /app
 COPY . .
 
-# Instalar dependencias PHP
+# Instalar dependencias PHP de Composer
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Generar key de Laravel

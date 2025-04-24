@@ -1,26 +1,31 @@
 FROM php:7.4-cli
 
-# Instala dependencias del sistema y Composer
+# Instala dependencias del sistema
 RUN apt-get update && apt-get install -y \
-    curl \
-    unzip \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
- && docker-php-ext-configure gd --with-freetype --with-jpeg \
- && docker-php-ext-install gd
+    libpng-dev libjpeg-dev libfreetype6-dev unzip git curl \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd pdo pdo_mysql
 
-# Instala Composer globalmente
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Instala Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Establece el directorio de trabajo
+# Establece directorio de trabajo
 WORKDIR /var/www/html
 
-# Copia los archivos de tu app
+# Copia tu proyecto Laravel
 COPY . .
 
-# Expón el puerto que usás
+# Instala dependencias de Laravel
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+
+# Genera la APP_KEY
+RUN php artisan key:generate
+
+# Corre migraciones y seeders
+RUN php artisan migrate --force && php artisan db:seed --force
+
+# Expone el puerto
 EXPOSE 8000
 
-# Comando por defecto
-CMD ["php", "-S", "0.0.0.0:8000", "-t", "/var/www/html"]
+# Arranca el servidor
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]

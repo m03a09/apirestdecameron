@@ -10,6 +10,6 @@ COPY . .
 RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev && docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install gd
 
 # Expón el puerto
-EXPOSE 8080
+EXPOSE 8000
 
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html"]
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "/var/www/html"]

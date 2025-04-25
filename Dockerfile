@@ -15,9 +15,10 @@ COPY . .
 
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
+# Copiamos el entrypoint
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 EXPOSE 8000
 
-CMD php artisan key:generate --force \
- && php artisan migrate --force \
- && php artisan db:seed --force \
- && php -S 0.0.0.0:8000 -t public
+CMD ["/entrypoint.sh"]
